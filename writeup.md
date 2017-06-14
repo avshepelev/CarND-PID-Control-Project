@@ -1,2 +1,5 @@
 PID Control Project
 
+I started with [1,0,0] for PID gains and observed the resulting behavior. Found that the vehicle oscillated too much and reduced the P gain to 0.5. Realizing that the behavior of a P controller may never be good, I decided to manipulate the D gain and set this to 0.5 as well to see if it would improve things. The D gain did improve the behavior relative to a 0 D gain, but the vehicle still oscillated too much, so I decreased the P gain to 0.25. Eventually, I brought the P gain down to 0.1 (for a PID of [.1, 0, 0.5]), which seemed more reasonable. 
+
+To see what effect the D gain would have, I raised the D gain to 1. This reduced the osscilations, improved the settling time, and allowed the vehicle to navigate the track more or less successfully. I eventually settled on [0.12, 0, 1] for the PID gains. The I gain now needed to be chosen. I stared with 0.1 and found that this was far too high. A value of 0.0001 was found to be adequate, yielding the final PID gains of [0.12, 0.0001, 1]
